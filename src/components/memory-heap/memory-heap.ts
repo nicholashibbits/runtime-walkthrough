@@ -12,7 +12,7 @@ export class MemoryHeap extends HTMLElement {
       <style>${baseCSS}\n${css}</style>
       <div class="runtime-box glow-heap" id="box">
         <div class="box-label"><span class="dot"></span> engine</div>
-        <div class="box-title">Memory Heap</div>
+        <div class="box-title">Memory Heap <span class="tooltip-trigger">?<span class="tooltip-popup">Unstructured memory region where objects, strings, and closures are dynamically allocated during execution.<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_management" target="_blank">MDN: Memory Management &rarr;</a></span></span></div>
         <div class="heap-items" id="items"></div>
       </div>
     `;

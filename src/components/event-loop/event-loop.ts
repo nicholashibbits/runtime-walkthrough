@@ -14,7 +14,7 @@ export class EventLoop extends HTMLElement {
       <style>${baseCSS}\n${css}</style>
       <div class="runtime-box glow-eventloop" id="box">
         <div class="box-label"><span class="dot"></span> runtime</div>
-        <div class="box-title">Event Loop</div>
+        <div class="box-title">Event Loop <span class="tooltip-trigger">?<span class="tooltip-popup">Continuously checks if the call stack is empty, then moves queued callbacks onto the stack for execution.<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop" target="_blank">MDN: Event Loop &rarr;</a></span></span></div>
         <div class="eventloop-visual">
           <div class="loop-ring-container">
             <div class="loop-ring" id="ring"></div>

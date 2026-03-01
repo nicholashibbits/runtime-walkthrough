@@ -15,6 +15,16 @@
   background: var(--webapi);
 }
 
+.tooltip-popup {
+  left: auto;
+  right: 0;
+}
+
+.tooltip-popup::after {
+  left: auto;
+  right: 7px;
+}
+
 .webapi-items {
   display: flex;
   flex-direction: column;

@@ -12,7 +12,7 @@ export class ConsoleOutput extends HTMLElement {
       <style>${baseCSS}\n${css}</style>
       <div class="runtime-box glow-console" id="box">
         <div class="box-label"><span class="dot"></span> output</div>
-        <div class="box-title">Console</div>
+        <div class="box-title">Console <span class="tooltip-trigger">?<span class="tooltip-popup">Displays output from console.log() and other console methods, reflecting the runtime order of execution.<a href="https://developer.mozilla.org/en-US/docs/Web/API/console" target="_blank">MDN: Console API &rarr;</a></span></span></div>
         <div class="console-lines" id="lines"></div>
       </div>
     `;

@@ -12,7 +12,7 @@ export class TaskQueue extends HTMLElement {
       <style>${baseCSS}\n${css}</style>
       <div class="runtime-box glow-taskq" id="box">
         <div class="box-label"><span class="dot"></span> runtime</div>
-        <div class="box-title">Task Queue</div>
+        <div class="box-title">Task Queue <span class="tooltip-trigger">?<span class="tooltip-popup">Holds callbacks from setTimeout, setInterval, and I/O events. The event loop processes one task at a time.<a href="https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide#tasks_vs._microtasks" target="_blank">MDN: Tasks vs Microtasks &rarr;</a></span></span></div>
         <div class="queue-items" id="items"></div>
       </div>
     `;

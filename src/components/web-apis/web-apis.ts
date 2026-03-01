@@ -12,7 +12,7 @@ export class WebApis extends HTMLElement {
       <style>${baseCSS}\n${css}</style>
       <div class="runtime-box glow-webapi" id="box">
         <div class="box-label"><span class="dot"></span> browser</div>
-        <div class="box-title">Web APIs</div>
+        <div class="box-title">Web APIs <span class="tooltip-trigger">?<span class="tooltip-popup">Browser-provided interfaces (setTimeout, fetch, DOM events) that handle async operations outside the JS engine.<a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Client-side_APIs/Introduction" target="_blank">MDN: Web APIs &rarr;</a></span></span></div>
         <div class="webapi-items" id="items"></div>
       </div>
     `;

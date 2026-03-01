@@ -12,7 +12,7 @@ export class CallStack extends HTMLElement {
       <style>${baseCSS}\n${css}</style>
       <div class="runtime-box glow-stack" id="box">
         <div class="box-label"><span class="dot"></span> engine</div>
-        <div class="box-title">Call Stack</div>
+        <div class="box-title">Call Stack <span class="tooltip-trigger">?<span class="tooltip-popup">Tracks function execution order using LIFO (last in, first out). Each function call pushes a frame; returning pops it off.<a href="https://developer.mozilla.org/en-US/docs/Glossary/Call_stack" target="_blank">MDN: Call Stack &rarr;</a></span></span></div>
         <div class="stack-container" id="frames"></div>
       </div>
     `;

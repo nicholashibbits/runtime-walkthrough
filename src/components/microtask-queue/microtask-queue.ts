@@ -12,7 +12,7 @@ export class MicrotaskQueue extends HTMLElement {
       <style>${baseCSS}\n${css}</style>
       <div class="runtime-box glow-microtask" id="box">
         <div class="box-label"><span class="dot"></span> runtime &middot; priority</div>
-        <div class="box-title">Microtask Queue</div>
+        <div class="box-title">Microtask Queue <span class="tooltip-trigger">?<span class="tooltip-popup">High-priority queue for Promise callbacks and queueMicrotask(). Fully drained before the event loop processes the next task.<a href="https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide" target="_blank">MDN: Microtasks &rarr;</a></span></span></div>
         <div class="queue-items" id="items"></div>
       </div>
     `;

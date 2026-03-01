@@ -11,7 +11,6 @@
   padding: 0.8rem;
   transition: border-color 0.5s, box-shadow 0.5s;
   position: relative;
-  overflow: hidden;
   min-height: 110px;
   height: 100%;
 }
@@ -52,4 +51,81 @@
   font-size: 0.85rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ── TOOLTIP ── */
+
+.tooltip-trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid var(--muted);
+  color: var(--muted);
+  font-size: 0.55rem;
+  font-weight: 600;
+  cursor: help;
+  flex-shrink: 0;
+  transition: border-color 0.2s, color 0.2s;
+  line-height: 1;
+}
+
+.tooltip-trigger:hover {
+  border-color: var(--text);
+  color: var(--text);
+}
+
+.tooltip-popup {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 220px;
+  padding: 0.6rem 0.75rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--text);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  z-index: 100;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  white-space: normal;
+}
+
+.tooltip-popup::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 7px;
+  border: 5px solid transparent;
+  border-bottom-color: var(--border);
+}
+
+.tooltip-trigger:hover .tooltip-popup {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tooltip-popup a {
+  display: inline-block;
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: 0.6rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.tooltip-popup a:hover {
+  color: var(--text);
+  text-decoration: underline;
 }
