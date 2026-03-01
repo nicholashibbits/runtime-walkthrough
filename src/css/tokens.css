@@ -1,0 +1,24 @@
+/* ── DESIGN TOKENS ── */
+
+:root {
+  --bg: #08080d;
+  --surface: #101018;
+  --surface2: #16161f;
+  --border: #1e1e2e;
+  --text: #d4d4e8;
+  --muted: #5a5a78;
+
+  --stack: #ff6b6b;
+  --heap: #ffd93d;
+  --webapi: #6bcb77;
+  --taskq: #4d9fff;
+  --microtask: #c77dff;
+  --eventloop: #ff9f43;
+
+  --glow-stack: rgba(255, 107, 107, 0.15);
+  --glow-heap: rgba(255, 217, 61, 0.15);
+  --glow-webapi: rgba(107, 203, 119, 0.15);
+  --glow-taskq: rgba(77, 159, 255, 0.15);
+  --glow-micro: rgba(199, 125, 255, 0.15);
+  --glow-loop: rgba(255, 159, 67, 0.15);
+}

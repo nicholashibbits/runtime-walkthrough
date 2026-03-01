@@ -1,0 +1,121 @@
+:host {
+  display: block;
+}
+
+.code-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  position: sticky;
+  top: 1rem;
+}
+
+.code-panel-header {
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface2);
+}
+
+.dots {
+  display: flex;
+  gap: 5px;
+}
+
+.dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dots span:nth-child(1) { background: #ff5f57; }
+.dots span:nth-child(2) { background: #ffbd2e; }
+.dots span:nth-child(3) { background: #28c840; }
+
+.filename {
+  font-size: 0.65rem;
+  color: var(--muted);
+  margin-left: 0.3rem;
+  flex: 1;
+}
+
+.btn-edit {
+  margin-left: auto;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--text);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-edit:hover {
+  background: var(--surface);
+  border-color: var(--muted);
+}
+
+.code-lines {
+  padding: 0.5rem 0;
+}
+
+.code-line {
+  display: flex;
+  align-items: center;
+  padding: 0.15rem 0.8rem;
+  font-size: 0.68rem;
+  line-height: 1.7;
+  transition: background 0.3s, opacity 0.3s;
+  position: relative;
+  opacity: 0.35;
+  min-height: 22px;
+}
+
+.code-line.active {
+  background: rgba(255, 255, 255, 0.04);
+  opacity: 1;
+}
+
+.code-line.executed {
+  opacity: 0.6;
+}
+
+.line-num {
+  width: 22px;
+  color: var(--muted);
+  font-size: 0.6rem;
+  flex-shrink: 0;
+  text-align: right;
+  margin-right: 10px;
+  user-select: none;
+}
+
+.active-marker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--eventloop);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.code-line.active .active-marker {
+  opacity: 1;
+  box-shadow: 0 0 8px var(--eventloop);
+}
+
+/* Syntax highlight tokens */
+.kw  { color: #cba6f7; }
+.fn  { color: #89b4fa; }
+.str { color: #a6e3a1; }
+.cm  { color: #4a4a5e; }
+.num { color: #fab387; }
+.op  { color: #89dceb; }

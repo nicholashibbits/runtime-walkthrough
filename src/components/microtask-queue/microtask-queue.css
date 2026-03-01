@@ -1,0 +1,48 @@
+.glow-microtask {
+  border-color: rgba(199, 125, 255, 0.4);
+  box-shadow: 0 0 20px var(--glow-micro);
+}
+
+.runtime-box::before {
+  background: radial-gradient(ellipse at center, var(--glow-micro) 0%, transparent 70%);
+}
+
+.box-title {
+  color: var(--microtask);
+}
+
+.box-label .dot {
+  background: var(--microtask);
+}
+
+.queue-items {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.queue-item {
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  font-size: 0.58rem;
+  font-weight: 600;
+  animation: queueEnter 0.3s ease;
+  background: rgba(199, 125, 255, 0.12);
+  border: 1px solid rgba(199, 125, 255, 0.3);
+  color: var(--microtask);
+}
+
+.queue-item.dequeuing {
+  animation: queueDequeue 0.35s ease forwards;
+}
+
+@keyframes queueEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes queueDequeue {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(-20px); }
+}

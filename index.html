@@ -5,135 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JS Runtime Walkthrough</title>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 <div class="container">
   <header class="header">
     <h1>JS Runtime Walkthrough</h1>
-    <p>load any JavaScript code and watch it flow through the runtime, line by line</p>
+    <p>pick an interview question and watch it flow through the runtime</p>
   </header>
 
-  <!-- ── CODE INPUT VIEW ── -->
-  <div id="inputView" class="input-view">
-    <div class="input-panel">
-      <div class="input-panel-header">
-        <span class="input-title">Paste your JavaScript (max 50 lines)</span>
-        <div class="preset-buttons">
-          <button class="btn btn-sm" data-preset="basic">Basic</button>
-          <button class="btn btn-sm" data-preset="async">Async</button>
-          <button class="btn btn-sm" data-preset="promises">Promises</button>
-        </div>
-      </div>
-      <textarea id="codeInput" spellcheck="false" placeholder="// Paste your JavaScript code here...
-// Examples: console.log, setTimeout, Promises, etc."></textarea>
-      <div class="input-actions">
-        <span class="line-count" id="lineCount">0 / 50 lines</span>
-        <button class="btn btn-primary" id="btnLoad">Load &amp; Analyze</button>
-      </div>
-    </div>
-  </div>
+  <!-- INPUT VIEW -->
+  <example-selector id="inputView"></example-selector>
 
-  <!-- ── VISUALIZATION VIEW ── -->
+  <!-- VISUALIZATION VIEW -->
   <div id="vizView" class="viz-view" style="display: none;">
     <div class="main-grid">
+      <code-panel></code-panel>
 
-      <!-- Code Panel (left sidebar) -->
-      <div class="code-panel">
-        <div class="code-panel-header">
-          <div class="dots"><span></span><span></span><span></span></div>
-          <span class="filename">your-code.js</span>
-          <button class="btn btn-sm btn-edit" id="btnEdit">Edit</button>
-        </div>
-        <div class="code-lines" id="codeLines"></div>
-      </div>
-
-      <!-- Runtime Visualization (right area) -->
       <div class="runtime-area">
-
-        <!-- Call Stack -->
-        <div class="runtime-box box-call-stack" id="boxStack">
-          <div class="box-label"><span class="dot" style="background:var(--stack)"></span> engine</div>
-          <div class="box-title" style="color:var(--stack)">Call Stack</div>
-          <div class="stack-container" id="stackFrames"></div>
-        </div>
-
-        <!-- Memory Heap -->
-        <div class="runtime-box box-heap" id="boxHeap">
-          <div class="box-label"><span class="dot" style="background:var(--heap)"></span> engine</div>
-          <div class="box-title" style="color:var(--heap)">Memory Heap</div>
-          <div class="heap-items" id="heapItems"></div>
-        </div>
-
-        <!-- Web APIs -->
-        <div class="runtime-box box-webapi" id="boxWebapi">
-          <div class="box-label"><span class="dot" style="background:var(--webapi)"></span> browser</div>
-          <div class="box-title" style="color:var(--webapi)">Web APIs</div>
-          <div class="webapi-items" id="webapiItems"></div>
-        </div>
-
-        <!-- Event Loop -->
-        <div class="runtime-box box-eventloop" id="boxEventloop">
-          <div class="box-label"><span class="dot" style="background:var(--eventloop)"></span> runtime</div>
-          <div class="box-title" style="color:var(--eventloop)">Event Loop</div>
-          <div class="eventloop-visual">
-            <div class="loop-ring-container">
-              <div class="loop-ring" id="loopRing"></div>
-              <div class="loop-label" id="loopLabel">idle</div>
-            </div>
-            <div class="loop-status" id="loopStatus"></div>
-          </div>
-        </div>
-
-        <!-- Microtask Queue -->
-        <div class="runtime-box box-microtask" id="boxMicro">
-          <div class="box-label"><span class="dot" style="background:var(--microtask)"></span> runtime &middot; priority</div>
-          <div class="box-title" style="color:var(--microtask)">Microtask Queue</div>
-          <div class="queue-items" id="microItems"></div>
-        </div>
-
-        <!-- Task Queue -->
-        <div class="runtime-box box-taskq" id="boxTask">
-          <div class="box-label"><span class="dot" style="background:var(--taskq)"></span> runtime</div>
-          <div class="box-title" style="color:var(--taskq)">Task Queue</div>
-          <div class="queue-items" id="taskItems"></div>
-        </div>
-
-        <!-- Console Output -->
-        <div class="runtime-box box-console" id="boxConsole">
-          <div class="box-label"><span class="dot" style="background:#888"></span> output</div>
-          <div class="box-title" style="color:var(--text)">Console</div>
-          <div class="console-lines" id="consoleLines"></div>
-        </div>
-
-        <!-- Narration Bar -->
-        <div class="narration-bar" id="narrationBar">
-          <div class="narration-icon" id="narrationIcon">&#9654;</div>
-          <div class="narration-text" id="narrationText">Press <em>Play</em> to start the walkthrough. Each step shows how the JS runtime processes your code.</div>
-        </div>
-
-        <!-- Playback Controls -->
-        <div class="controls">
-          <button class="btn btn-primary" id="btnPlay">&#9654; Play</button>
-          <button class="btn" id="btnStep">&#9193; Step</button>
-          <button class="btn" id="btnReset">&#8634; Reset</button>
-          <div class="speed-control">
-            <span>Speed:</span>
-            <button class="speed-btn active" data-speed="1">1&times;</button>
-            <button class="speed-btn" data-speed="2">2&times;</button>
-            <button class="speed-btn" data-speed="3">3&times;</button>
-          </div>
-          <div class="step-indicator" id="stepIndicator"></div>
-        </div>
-
+        <call-stack></call-stack>
+        <memory-heap></memory-heap>
+        <web-apis></web-apis>
+        <event-loop></event-loop>
+        <microtask-queue></microtask-queue>
+        <task-queue></task-queue>
+        <console-output></console-output>
+        <narration-bar></narration-bar>
+        <playback-controls></playback-controls>
       </div>
     </div>
   </div>
 </div>
 
-<script src="js/analyzer.js"></script>
-<script src="js/runtime.js"></script>
-<script src="js/app.js"></script>
+<script type="module" src="/src/main.ts"></script>
 </body>
 </html>

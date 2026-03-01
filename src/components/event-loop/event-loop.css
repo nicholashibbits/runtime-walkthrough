@@ -1,0 +1,74 @@
+.glow-eventloop {
+  border-color: rgba(255, 159, 67, 0.4);
+  box-shadow: 0 0 20px var(--glow-loop);
+}
+
+.runtime-box::before {
+  background: radial-gradient(ellipse at center, var(--glow-loop) 0%, transparent 70%);
+}
+
+.box-title {
+  color: var(--eventloop);
+}
+
+.box-label .dot {
+  background: var(--eventloop);
+}
+
+.eventloop-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.15rem;
+}
+
+.loop-ring-container {
+  position: relative;
+  width: 54px;
+  height: 54px;
+}
+
+.loop-ring {
+  width: 54px;
+  height: 54px;
+  border: 2.5px solid rgba(255, 159, 67, 0.2);
+  border-radius: 50%;
+  border-top-color: transparent;
+  position: absolute;
+  transition: border-color 0.3s;
+}
+
+.loop-ring.spinning {
+  animation: loopSpin 0.8s linear infinite;
+  border-color: var(--eventloop);
+  border-top-color: transparent;
+}
+
+.loop-label {
+  font-size: 0.5rem;
+  color: var(--eventloop);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.loop-status {
+  font-size: 0.52rem;
+  color: var(--muted);
+  text-align: center;
+  transition: color 0.3s;
+  min-height: 14px;
+}
+
+.loop-status.active {
+  color: var(--eventloop);
+}
+
+@keyframes loopSpin {
+  to { transform: rotate(360deg); }
+}

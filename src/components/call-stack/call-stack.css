@@ -1,0 +1,48 @@
+.glow-stack {
+  border-color: rgba(255, 107, 107, 0.4);
+  box-shadow: 0 0 20px var(--glow-stack);
+}
+
+.runtime-box::before {
+  background: radial-gradient(ellipse at center, var(--glow-stack) 0%, transparent 70%);
+}
+
+.box-title {
+  color: var(--stack);
+}
+
+.box-label .dot {
+  background: var(--stack);
+}
+
+.stack-container {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 4px;
+  margin-top: 0.25rem;
+}
+
+.stack-frame {
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  animation: framePush 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: rgba(255, 107, 107, 0.12);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  color: var(--stack);
+}
+
+.stack-frame.popping {
+  animation: framePop 0.3s ease forwards;
+}
+
+@keyframes framePush {
+  from { opacity: 0; transform: translateY(8px) scaleY(0.8); }
+  to   { opacity: 1; transform: translateY(0) scaleY(1); }
+}
+
+@keyframes framePop {
+  from { opacity: 1; transform: translateX(0) scaleX(1); }
+  to   { opacity: 0; transform: translateX(30px) scaleX(0.5); }
+}

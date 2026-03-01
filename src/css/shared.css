@@ -1,0 +1,42 @@
+/* ── SHARED BUTTON STYLES ── */
+
+.btn {
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--text);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn:hover {
+  background: var(--surface);
+  border-color: var(--muted);
+}
+
+.btn-sm {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.6rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--eventloop), var(--stack));
+  border-color: transparent;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

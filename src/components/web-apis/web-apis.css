@@ -1,0 +1,46 @@
+.glow-webapi {
+  border-color: rgba(107, 203, 119, 0.4);
+  box-shadow: 0 0 20px var(--glow-webapi);
+}
+
+.runtime-box::before {
+  background: radial-gradient(ellipse at center, var(--glow-webapi) 0%, transparent 70%);
+}
+
+.box-title {
+  color: var(--webapi);
+}
+
+.box-label .dot {
+  background: var(--webapi);
+}
+
+.webapi-items {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 0.25rem;
+}
+
+.webapi-item {
+  padding: 0.3rem 0.45rem;
+  border-radius: 5px;
+  font-size: 0.58rem;
+  background: rgba(107, 203, 119, 0.1);
+  border: 1px solid rgba(107, 203, 119, 0.25);
+  color: var(--webapi);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: apiSlide 0.3s ease;
+}
+
+.webapi-timer {
+  font-size: 0.52rem;
+  opacity: 0.7;
+}
+
+@keyframes apiSlide {
+  from { opacity: 0; transform: translateX(15px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
