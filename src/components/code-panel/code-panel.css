@@ -1,5 +1,6 @@
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 .code-panel {
@@ -7,8 +8,10 @@
   border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
-  position: sticky;
-  top: 1rem;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .code-panel-header {
@@ -20,25 +23,9 @@
   background: var(--surface2);
 }
 
-.dots {
-  display: flex;
-  gap: 5px;
-}
-
-.dots span {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-.dots span:nth-child(1) { background: #ff5f57; }
-.dots span:nth-child(2) { background: #ffbd2e; }
-.dots span:nth-child(3) { background: #28c840; }
-
 .filename {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   color: var(--muted);
-  margin-left: 0.3rem;
   flex: 1;
 }
 
@@ -62,19 +49,35 @@
 }
 
 .code-lines {
-  padding: 0.5rem 0;
+  padding: 0.6rem 0;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.code-lines::-webkit-scrollbar {
+  width: 4px;
+}
+
+.code-lines::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.code-lines::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .code-line {
   display: flex;
   align-items: center;
-  padding: 0.15rem 0.8rem;
-  font-size: 0.68rem;
+  padding: 0.25rem 1rem;
+  font-size: 0.85rem;
   line-height: 1.7;
   transition: background 0.3s, opacity 0.3s;
   position: relative;
-  opacity: 0.35;
-  min-height: 22px;
+  opacity: 0.7;
+  min-height: 28px;
 }
 
 .code-line.active {
@@ -87,12 +90,12 @@
 }
 
 .line-num {
-  width: 22px;
+  width: 24px;
   color: var(--muted);
-  font-size: 0.6rem;
+  font-size: 0.72rem;
   flex-shrink: 0;
   text-align: right;
-  margin-right: 10px;
+  margin-right: 12px;
   user-select: none;
 }
 
@@ -110,6 +113,10 @@
 .code-line.active .active-marker {
   opacity: 1;
   box-shadow: 0 0 8px var(--eventloop);
+}
+
+.code-text {
+  white-space: pre;
 }
 
 /* Syntax highlight tokens */

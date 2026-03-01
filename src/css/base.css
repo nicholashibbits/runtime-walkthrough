@@ -30,9 +30,9 @@ body::before {
 }
 
 .container {
-  max-width: 1300px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 1rem;
   position: relative;
   z-index: 1;
 }
@@ -74,8 +74,8 @@ body::before {
 
 .main-grid {
   display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 1rem;
+  grid-template-columns: 440px 1fr;
+  gap: 0.75rem;
   align-items: start;
 }
 
@@ -99,26 +99,76 @@ body::before {
 .runtime-area microtask-queue { grid-column: 1 / 3; grid-row: 3; }
 .runtime-area task-queue      { grid-column: 3; grid-row: 3; }
 .runtime-area console-output  { grid-column: 1 / 4; grid-row: 4; }
-.runtime-area narration-bar   { grid-column: 1 / 4; grid-row: 5; }
-.runtime-area playback-controls { grid-column: 1 / 4; }
+
+
+/* ── MAIN-GRID CHILD PLACEMENT ── */
+
+.main-grid > code-panel {
+  grid-column: 1;
+  grid-row: 1 / 4;
+  align-self: start;
+  max-height: 65vh;
+}
+
+.main-grid > .runtime-area {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.main-grid > narration-bar {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.main-grid > playback-controls {
+  grid-column: 2;
+  grid-row: 3;
+}
 
 
 /* ── RESPONSIVE ── */
+
+@media (max-width: 1200px) {
+  .main-grid {
+    grid-template-columns: 360px 1fr;
+  }
+}
 
 @media (max-width: 900px) {
   .main-grid {
     grid-template-columns: 1fr;
   }
 
+  .main-grid > playback-controls {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .main-grid > narration-bar {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .main-grid > code-panel {
+    grid-column: 1;
+    grid-row: 3;
+    max-height: none;
+  }
+
+  .main-grid > .runtime-area {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
   .runtime-area {
     grid-template-columns: 1fr 1fr;
   }
 
-  .runtime-area call-stack      { grid-column: 1; grid-row: auto; }
-  .runtime-area web-apis        { grid-column: 2; grid-row: auto; }
-  .runtime-area microtask-queue { grid-column: 1 / 3; }
-  .runtime-area task-queue      { grid-column: 1 / 3; }
-  .runtime-area console-output  { grid-column: 1 / 3; }
-  .runtime-area narration-bar   { grid-column: 1 / 3; }
-  .runtime-area playback-controls { grid-column: 1 / 3; }
+  .runtime-area call-stack      { grid-column: 1; grid-row: 1; }
+  .runtime-area web-apis        { grid-column: 1; grid-row: 2; }
+  .runtime-area memory-heap     { grid-column: 2; grid-row: 1; }
+  .runtime-area event-loop      { grid-column: 2; grid-row: 2; }
+  .runtime-area microtask-queue { grid-column: 1 / 3; grid-row: 3; }
+  .runtime-area task-queue      { grid-column: 1 / 3; grid-row: 4; }
+  .runtime-area console-output  { grid-column: 1 / 3; grid-row: 5; }
 }

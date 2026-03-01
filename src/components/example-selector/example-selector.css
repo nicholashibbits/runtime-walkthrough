@@ -4,6 +4,12 @@
   margin: 0 auto;
 }
 
+@media (min-width: 1280px) {
+  :host {
+    max-width: none;
+  }
+}
+
 .selector-panel {
   background: var(--surface);
   border: 1px solid var(--border);

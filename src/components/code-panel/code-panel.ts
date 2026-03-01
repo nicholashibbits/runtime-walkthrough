@@ -12,7 +12,6 @@ export class CodePanel extends HTMLElement {
       <style>${css}</style>
       <div class="code-panel">
         <div class="code-panel-header">
-          <div class="dots"><span></span><span></span><span></span></div>
           <span class="filename" id="filename">example.js</span>
           <button class="btn-edit" id="btnEdit">Back</button>
         </div>
