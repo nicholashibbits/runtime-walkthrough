@@ -51,6 +51,7 @@
 .code-lines {
   padding: 0.6rem 0;
   overflow-y: auto;
+  overflow-x: auto;
   flex: 1;
   min-height: 0;
 }

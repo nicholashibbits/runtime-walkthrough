@@ -8,6 +8,7 @@
   justify-content: center;
   gap: 0.75rem;
   padding: 0.5rem 0;
+  flex-wrap: wrap;
 }
 
 .btn {
@@ -85,6 +86,8 @@
   gap: 4px;
   font-size: 0.58rem;
   color: var(--muted);
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .step-dot {
